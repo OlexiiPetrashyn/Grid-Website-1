@@ -1,0 +1,235 @@
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+}
+h1{
+    font-size:36px;
+}
+h2{
+    font-size:26px;
+}
+h3{
+    font-size:20px;
+}
+p{
+    font-size:18px;
+    line-height:28px;
+    padding: 0 20px;
+}
+a{
+    text-decoration:none;
+}
+/* GLOBAL RULES END */
+
+.jumbotron{
+	display: grid;
+	grid-template-rows:100px auto auto auto 100px;
+	grid-template-columns: 1fr;
+    background:rgba(51,51,51,0.6);
+    color:#fff;
+	text-align: center;
+    justify-items: center;
+}
+.jumbotron::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+	height:100%;
+    background: url('https://static.pexels.com/photos/248515/pexels-photo-248515.png') top no-repeat;
+    z-index:-1;
+    background-size: contain;
+    background-position: top;
+}
+.jumbotron h1{
+	grid-area: 2 / 1 / 3 / 2;
+}
+.jumbotron p{
+	grid-area: 3 / 1 / 4 / 2;
+	max-width:880px;
+}
+.jumbotron a{
+	grid-area: 4 / 1 / 5 / 2;
+}
+.jumbotron a,
+.jumbotron a:visited{
+    border: 1px solid #666;
+    padding:18px 36px;
+    background:#333;
+    margin:9px auto;
+    color:#fff;
+    font-size:18px;
+    text-decoration:none;
+}
+.jumbotron a:hover,
+.jumbotron a:focus{
+    background: #eaeaea;
+    color: #333;
+}
+.content-container{
+	display: grid;
+	grid-template-rows:36px auto auto 36px;
+	grid-template-columns: 1fr;
+	color:#333;
+	text-align: center;
+	justify-items: center;
+}
+.atc-type-1{
+    background:#eaeaea;
+}
+.atc-type-1 h2,
+.atc-type-3 h2{
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+.atc-type-1 p,
+.atc-type-3 p{
+	grid-row-start: 3;
+	grid-row-end: 4;
+	max-width:880px;
+	text-align: center;
+}
+.atc-type-1 p{
+	columns: 2;
+	column-gap: 36px;
+	text-align:justify;
+}
+.atc-type-2{
+	background:#333;
+}
+.atc-type-2 h2{
+	display:none; /* HEADER HIDEN FOR SEO */
+}
+.atc-type-2{
+	grid-row-start: 2;
+	grid-row-end: 3;
+	display:grid;
+	grid-template-rows:36px auto 36px;
+	grid-template-columns: auto 272px 18px 272px 18px 272px auto;
+}
+.atc-type-2 article{
+    background:#fff;
+}
+.atc-type-2 article:nth-child(2){
+	grid-area: 2 / 2 / 3 / 3;
+}
+.atc-type-2 article:nth-child(3){
+	grid-area: 2 / 4 / 3 / 5;
+}
+.atc-type-2 article:nth-child(4){
+	grid-area: 2 / 6 / 3 / 7;
+}
+.atc-type-2 article img{
+    width:100%;
+}
+.atc-type-2 article h3{
+    padding: 0 20px;
+}
+.atc-type-3{
+	background:#fff;
+}
+.atc-type-4,
+.copyrights {
+	color: #fff;
+	display:grid;
+	grid-template-rows:1fr;
+	grid-template-columns:1fr 1fr;
+	text-align: center;
+}
+.atc-type-4 article:first-child,
+.atc-type-4 article:last-child{
+	grid-row-start: 1;
+	grid-row-end: 2;
+	padding:36px;
+}
+.atc-type-4 article:first-child{
+	background:#2690d4;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+.atc-type-4 article:last-child{
+	background:#333;
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+.atc-type-4 p{
+    padding: 0px;
+}
+.atc-type-4 a,
+.atc-type-4 a:visited{
+    color:#fff;
+}
+.atc-type-4 a:hover,
+.atc-type-4 a:focus{
+    color: #fff700;
+}
+
+.copyrights{
+    background:#000;
+    padding: 36px;
+}
+.copyrights span{
+    width:100%;
+}
+.copyrights span a,
+.copyrights span a:visited{
+    color:#2690d4;
+}
+.copyrights span a:hover,
+.copyrights span a:focus{
+    color: #fff700;
+}
+@media all and (max-width:998px){
+	.atc-type-2 {
+	    grid-template-columns: 18px auto 18px auto 18px auto 18px;
+	}
+	.jumbotron::before {
+    	background-size: inherit;
+	}
+}
+@media all and (max-width:768px){
+	.jumbotron{
+		grid-template-rows:36px auto auto auto 36px;
+		background:rgba(51,51,51,1);
+	}
+	.jumbotron::before{
+		display:none;
+	}
+	.atc-type-1 p {
+		columns: 1;
+		column-gap: unset;
+	}
+	.atc-type-2 {
+		grid-template-rows: 36px auto 18px auto 18px auto 36px;
+		grid-template-columns: 36px auto 36px;
+	}
+	.atc-type-2 article:nth-child(2) {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+	.atc-type-2 article:nth-child(3) {
+		grid-area: 4 / 2 / 5 / 3;
+	}
+	.atc-type-2 article:nth-child(4) {
+		grid-area: 6 / 2 / 7 / 3;
+	}
+	.atc-type-4,
+	.copyrights {
+		grid-template-rows: auto auto;
+		grid-template-columns:1fr;
+	}
+	.atc-type-4 article:nth-child(n+1):nth-child(-n+2){
+		grid-column-start: 1;
+		grid-column-end: 2;
+		padding: 36px 18px;
+	}
+	.atc-type-4 article:first-child{
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+	.atc-type-4 article:last-child{
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+}
